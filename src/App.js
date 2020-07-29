@@ -6,15 +6,21 @@ import TodoItem from "./components/TodoItem.js";
 class App extends Component {
   constructor() {
     super();
-    this.todoItems = ["Di an com", "Di danh rang", "Di ngu"];
+    this.todoItems = [
+      { title: "Di an com", isComplete: true },
+      { title: "Di danh rang", isComplete: true },
+      { title: "Di ngu", isComplete: false },
+    ];
   }
 
   render() {
     return (
       <div className="App">
-        {this.todoItems.map((item, index) => (
-          <TodoItem key={index} title={item} />
-        ))}
+        {this.todoItems.length > 0 &&
+          this.todoItems.map((item, index) => (
+            <TodoItem key={index} item={item} />
+          ))}
+        {this.todoItems.length === 0 && "Nothing here."}
       </div>
     );
   }
