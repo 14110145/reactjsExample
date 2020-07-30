@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import TodoItem from "./components/TodoItem.js";
-import classnames from "classnames";
 
 class App extends Component {
   constructor() {
@@ -14,11 +13,17 @@ class App extends Component {
         { title: "Di ngu", isComplete: false },
       ],
     };
-    this.onItemClick = this.onItemClick.bind(this);
+    // this.onItemClick = this.onItemClick.bind(this);
   }
 
-  onItemClick() {
-    this.setState();
+  onItemClick(item) {
+    return (event) => {
+      this.setState({
+        todoItems: this.state.todoItems.map((itemMap) => {
+          return item !== itemMap ? { ...itemMap } : { ...itemMap, isComplete: !itemMap.isComplete };
+        }),
+      });
+    };
   }
 
   render() {
@@ -27,7 +32,7 @@ class App extends Component {
       <div className="App">
         {todoItems.length > 0 &&
           todoItems.map((item, index) => (
-            <TodoItem key={index} item={item} onlick={this.onItemClick} />
+            <TodoItem key={index} item={item} onClick={this.onItemClick(item)} />
           ))}
         {todoItems.length === 0 && "Nothing here."}
       </div>

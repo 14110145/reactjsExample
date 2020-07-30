@@ -17,7 +17,7 @@ class TodoItem extends Component {
 
     return (
       <div
-        onClick={this.onClick}
+        onClick={onClick}
         className={classnames("TodoItem", {
           "TodoItem-complete": item.isComplete,
         })}
