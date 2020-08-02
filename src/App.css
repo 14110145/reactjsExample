@@ -1,18 +1,37 @@
-* {
-  margin: 0;
-  padding: 0;
-  font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
-  line-height: 1.4em;
+body {
   background: #f5f5f5;
-  color: #4d4d4d;
 }
 
 .App {
   min-width: 230px;
-  max-width: 550px;
+  max-width: 500px;
   margin: 0 auto;
   text-align: center;
+  border: 1px solid #eee;
+  background: #fff;
 }
+
+.App .Header {
+  display: flex;
+ 
+  padding: 10px 5px;
+}
+
+.App .Header img {
+  padding: 0 20px 0 10px;
+}
+
+.App .Header input {
+  font: 24px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  outline: none;
+  border: none;
+  flex-grow: 1;
+  color: #4d4d4d;
+}
+
+.App .Header input:focus{
+}
+
 
 .App-logo {
   height: 40vmin;

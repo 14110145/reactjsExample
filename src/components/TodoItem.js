@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./TodoItem.css";
-const classnames = require("classnames");
+import classnames from "classnames";
+import checkImg from "../image/check.svg";
+import checkCompleteImg from "../image/check-complete.svg";
 
 class TodoItem extends Component {
   // constructor(props) {
@@ -11,18 +13,17 @@ class TodoItem extends Component {
   // onItemClick() {
   //   console.log(this.props.item);
   // }
-
   render() {
     const { item, onClick } = this.props;
+    let url = checkImg;
+    if (item.isComplete) {
+      url = checkCompleteImg;
+    }
 
     return (
-      <div
-        onClick={onClick}
-        className={classnames("TodoItem", {
-          "TodoItem-complete": item.isComplete,
-        })}
-      >
-        <p>{this.props.item.title}</p>
+      <div className={classnames("TodoItem", { "TodoItem-complete": item.isComplete })}>
+        <img onClick={onClick} src={url} />
+        <p>{item.title}</p>
       </div>
     );
   }
