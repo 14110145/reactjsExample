@@ -15,6 +15,7 @@ class TodoItem extends Component {
   // }
   render() {
     const { item, onClick } = this.props;
+    // item = this.props.item; onClick = this.props.onClick;
     let url = checkImg;
     if (item.isComplete) {
       url = checkCompleteImg;

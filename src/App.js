@@ -35,7 +35,7 @@ class App extends Component {
 
   onKeyUp(event) {
     if (event.keyCode === 13) {
-      let text = event.target.value;
+      let text = this.state.newItem;
       if (!text) {
         return;
       }
